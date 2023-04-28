@@ -7,7 +7,10 @@
 - String to char : `string.charAt(0);`
 - String을 한 글자씩 split : `String[] s_array = s.split("");`
 - char to int : `int i = char - '0';` // 아스키코드의 차이를 구한 다음, int로 자동 형변환
-- 지수승 : Math.pow(a,b);
+- int to String : `Integer.toString(int);`
+- float to int : `Math.round(float)`;
+- double to int : `(int)Math.round(double);` // Math.round에 double을 넣으면 int가 아니라 long을 반환하므로 이를 다시 int로 변환해줘야한다.
+- 지수승 : `Math.pow(a,b);`
 
 
 
