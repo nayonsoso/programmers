@@ -18,3 +18,25 @@
 - 정수를 100원 단위로 자르는 방법 : random int를 추출하는 방법과 유사
   - 내림하려는 자리수만큼 10의 지수승으로 나눈 다음, floor로 소숫점 아래를 자르고 다시 10의 지수승을 곱하는 방법
   - `double cashBack = Math.floor(cashBak*0.01)*100;` // floor은 double을 리턴
+
+### Quiz3
+
+---
+
+입력에 따라 놀이공원 입장 요금을 계산하는 문제
+
+- scanner.nextLine() : enter을 기준으로 입력을 받음
+- scanner.next() : white space(띄어쓰기, 엔터, 탭)을 기준으로 입력을 받음
+
+### Quiz4
+
+---
+
+랜덤으로 주민등록번호를 생성하는 문제
+
+- 파이썬의 난수 생성에 길들여졌기 때문에 조금 해맴..
+- 자바에서는 Random클래스의 오브젝트를 만들어서 사용함 `Random random = new Random();`
+- Random 클래스 사용을 위해서는 `import java.util.Random;` 선언 필요
+- `random.nextInt()` : int 범위 (-2^31 ~ +2^31-1)에 있는 임의의 정수 추출
+- `random.nextInt(i)` : 0부터 i 미만의 범위에 있는 임의의 정수 추출
+  - `random.nextInt(a) + b` : b부터 a+b-1의 범위에 있는 임의의 정수 추출 
