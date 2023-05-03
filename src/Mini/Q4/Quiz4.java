@@ -11,14 +11,15 @@ public class Quiz4 {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("[주민등록번호 계산]");
         System.out.print("출생년도를 입력해 주세요.(yyyy):");
         int years = scanner.nextInt();
         String year = Integer.toString(years % 100);
-        System.out.println("출생월을 입력해 주세요.(mm):");
+        System.out.print("출생월을 입력해 주세요.(mm):");
         String month = String.format("%02d", scanner.nextInt());
-        System.out.println("출생일을 입력해 주세요.(dd):");
+        System.out.print("출생일을 입력해 주세요.(dd):");
         String day = String.format("%02d", scanner.nextInt());
-        System.out.println("성별을 입력해 주세요.(m/f):");
+        System.out.print("성별을 입력해 주세요.(m/f):");
         String sex = scanner.next().equals("f") ? "4" : "3";
 
         int rnd = random.nextInt(999999) + 1;

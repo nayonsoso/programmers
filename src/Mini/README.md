@@ -40,3 +40,28 @@
 - `random.nextInt()` : int 범위 (-2^31 ~ +2^31-1)에 있는 임의의 정수 추출
 - `random.nextInt(i)` : 0부터 i 미만의 범위에 있는 임의의 정수 추출
   - `random.nextInt(a) + b` : b부터 a+b-1의 범위에 있는 임의의 정수 추출 
+
+
+### Quiz5
+
+---
+
+달력 출력하는 문제
+
+- LocalDate 클래스 이용
+  - LocalDate는 로컬 컴퓨터의 날짜를 담는 포맷, 비슷하게 LocalTime(시간), LocalDateTime(날짜와 시간) 클래스가 있음
+  - `import java.time.LocalDate;` 필요
+  - `LocalDate localdate = LocalDate.now();` : 현재 시간을 yyyy-mm-dd 형태로 저장
+  - 날짜가 속한 달의 일수 구하기 : `int days = localDate.lengthOfMonth();`
+  - 첫번째 날짜의 요일 구하기 (Mon-1, Sun-7) : `int dayOfWeek = localDate.getDayOfWeek().getValue();`
+- LocalDate 말고 Calendar와 Date 클래스도 사용가능하긴 하지만, 이젠 사장되는 추세
+
+### Quiz6
+
+---
+
+대선 결과 랜덤 시뮬레이션 문제
+
+- 무작위 투표를 위해 Random 클래스의 `nextInt()` 필요
+- String.format에서 double 소숫점 처리할 때 헷갈린 것 
+  - %5.2f는 전체 소수의 길이가 5(소숫점 포함), 소숫점 밑의 길이가 2이므로 xx.xx를 의미함
