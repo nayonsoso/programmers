@@ -12,7 +12,7 @@ public class Quiz6 {
         candidates.put("2", "윤석열");
         candidates.put("3", "심상정");
         candidates.put("4", "안철수");
-        doVote(candidates,4);
+        doVote(candidates,10000);
     }
 
     static void doVote(Map<String,String> candidate, int times){
