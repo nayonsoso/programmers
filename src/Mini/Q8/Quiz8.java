@@ -47,6 +47,7 @@ public class Quiz8 {
                 tax += taxAtLevel;
                 printTaxFormat(income - range[i - 1], (int) (tax_rate[i] * 100), taxAtLevel);
             }
+
         }
         return (int) tax;
     }

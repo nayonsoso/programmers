@@ -22,10 +22,9 @@ public class Quiz4 {
         System.out.print("성별을 입력해 주세요.(m/f):");
         String sex = scanner.next().equals("f") ? "4" : "3";
 
-        int rnd = random.nextInt(999999) + 1;
+        int rnd = random.nextInt(999999) + 1; // 1부터 999999까지
         String rndString = String.format("%06d", rnd);
         String result = String.format("%s%s%s-%s%s", year, month, day, sex, rndString);
         System.out.println(result);
-
     }
 }

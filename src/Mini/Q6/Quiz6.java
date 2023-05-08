@@ -59,6 +59,7 @@ public class Quiz6 {
                 max_idx = i;
             }
         }
+
         int freq = Collections.frequency(n_list,max);
 
         if(freq!=1){

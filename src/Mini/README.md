@@ -13,7 +13,7 @@
 
 결제액을 입력받고 그에 따른 캐쉬백을 출력하는 문제
 
-- Scanner로 입력 받는 것 잊고 있었는데 다시 상기시켜줌 
+- Scanner로 입력 받는 방법 잊고 있었는데 다시 상기시켜줌 
   - `import java.util.Scanner;` `Scanner scanner = new Scanner(System.in);` `String s = scanner.nextLine();`
 - 정수를 100원 단위로 자르는 방법 : random int를 추출하는 방법과 유사
   - 내림하려는 자리수만큼 10의 지수승으로 나눈 다음, floor로 소숫점 아래를 자르고 다시 10의 지수승을 곱하는 방법
@@ -37,7 +37,7 @@
 - 파이썬의 난수 생성에 길들여졌기 때문에 조금 해맴..
 - 자바에서는 Random클래스의 오브젝트를 만들어서 사용함 `Random random = new Random();`
 - Random 클래스 사용을 위해서는 `import java.util.Random;` 선언 필요
-- `random.nextInt()` : int 범위 (-2^31 ~ +2^31-1)에 있는 임의의 정수 추출
+- `random.nextInt()` : int 전체 범위 (-2^31 ~ +2^31-1)에 있는 임의의 정수 추출
 - `random.nextInt(i)` : 0부터 i 미만의 범위에 있는 임의의 정수 추출
   - `random.nextInt(a) + b` : b부터 a+b-1의 범위에 있는 임의의 정수 추출 
 
@@ -51,9 +51,9 @@
 - LocalDate 클래스 이용
   - LocalDate는 로컬 컴퓨터의 날짜를 담는 포맷, 비슷하게 LocalTime(시간), LocalDateTime(날짜와 시간) 클래스가 있음
   - `import java.time.LocalDate;` 필요
-  - `LocalDate localdate = LocalDate.now();` : 현재 시간을 yyyy-mm-dd 형태로 저장
+  - `LocalDate localdate = LocalDate.now();` : 현재 날짜를 yyyy-mm-dd 형태로 저장
   - 날짜가 속한 달의 일수 구하기 : `int days = localDate.lengthOfMonth();`
-  - 첫번째 날짜의 요일 구하기 (Mon-1, Sun-7) : `int dayOfWeek = localDate.getDayOfWeek().getValue();`
+  - 첫번째 날짜의 요일 구하기 (Mon=1, Sun=7) : `int dayOfWeek = localDate.getDayOfWeek().getValue();`
 - LocalDate 말고 Calendar와 Date 클래스도 사용가능하긴 하지만, 이젠 사장되는 추세
 
 ### Quiz6
@@ -65,7 +65,15 @@
 - 무작위 투표를 위해 Random 클래스의 `nextInt()` 필요
 - String.format에서 double 소숫점 처리할 때 헷갈린 것 
   - %5.2f는 전체 소수의 길이가 5(소숫점 포함), 소숫점 밑의 길이가 2이므로 xx.xx를 의미함
-
+- 컬렉션 프레임워크 
+  - 배열의 길이는 `.length`, 컬렉션 프레임워크의 크기는 `.size()`
+  - 조회 : `get(idx)`, 삽입 : `add(idx, Object or Object)`, 삭제 : `remove(idx or Object)`, 수정 : `set(idx, Object)`
+- HashMap의 모든 원소에 접근하는 법 : set or forEach
+  1. `for( Entry<T,T> entry : map.entrySet() ) { entry.getKey(); entry.getValue(); }`
+  2. `for( T key : map.keySet()) { map.get(key); }`
+  3. `for( T value : map.valueSet() ) { value; }`
+  4. `map.forEach((key,value) -> { sout(key + ":"" + value); })`
+- 배열의 주요 함수(e.g. sort)은 java.util.Arrays에 컬렉션 프레임워크의 주요 함수는 java.util.Collections에 있다.
 
 ### Quiz7
 
@@ -87,3 +95,6 @@
 
 ### Quiz8
 
+---
+
+- double중에 0보다 작은 것은 0.8이 아니라 .8만 써도 된다.
