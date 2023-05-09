@@ -1,15 +1,43 @@
-## Mission1
+## 컬렉션 프레임워크 복습
 
 ---
 
-### 컬렉션 프레임워크 복습
 - 컬렉션 프레임워크를 선언할 때 `<T>`를 굳이 적지 않아도 된다.
 - `.contains(Object)` : 컬렉션 프레임워크에 해당 Object가 있는지 boolean으로 리턴하는 함수
+- `.isEmpty()` : 컬렉션의 사이즈가 0인지 boolean으로 리턴하는 함수
 - `.indexOf(Object)` : 해당 Object가 있는 인덱스 중 가장 앞에 있는 인덱스를 리턴한다.
 - Array to ArrayList : `ArrayList arrayList = new ArrayList(Arrays.asList(array));`
-- ArrayList to Array : `Object[] arr1 = stack.toArray(new Object[stack.size()]);`
+- ArrayList to Array : `T[] arr1 = arraylist.toArray(new T[arraylist.size()]);` 이때 T는 Intger처럼 class여야 함
 - 로또 문제를 Set을 이용하면 훨씬 간단히 구현할 수 있다. (중복되는 값은 add가 안되므로 & sort하기 위해선 다시 ArrayList로)
-![img_1.png](img_1.png)
+  ![img_1.png](img_1.png)
 
 ### Stack
 - 주요 함수 : push, pop, peek(top 리턴)
+
+### Mission1
+
+---
+
+스택 4개를 이용해서 정렬이 가능한지 확인하는 문제
+- 스택을 이용한 정렬 문제인건 알겠는데, 4개의 스택 중 **어떤 스택에 삽입할지**, 4개의 스택 중 **어떤 스택에서 pop할지**의 기준을 문제에서 명시하지 않아서 어려웠던 문제
+- 문제에서 원하는 것은 모든 경우의 수 중에서 성공할 수 있는 것은 무엇이든 성공하면 "YES", 모든 경우에서 실패하면 "NO"를 출력하는 것이었다.
+- idea
+  - 이 문제는 2 phase로 해결된다. 1) 스택에 삽입 2) 스택에서 추출
+  - 추출은 방법이 하나밖에 없다 → 네 스택의 top을 비교해서 가장 큰 것을 pop하는 것을 반복
+  - 따라서 정렬은 성공 여부에 영향을 주지 않는다. 설계해야 할 것은 삽입하는 부분이다.
+  - `모든 스택이 오름차순으로 삽입되어야` 위의 추출로 정렬이 성공한다.
+- 모든 스택이 오름차순으로 삽입되기 위해서는 stack의 top이 입력된 것보다 크면 안된다.
+- 동시에 stack의 top은 현존하는 top들 중에서 가장 큰 top이여야 한다. 
+  - e.g. {2, 7, 8, 9}가 있고 10을 삽입하려 하면 2에 삽입하면 이제 7보다 큰 것만 받을 수 있지만, 9에 삽입하면 2보다 큰 것은 다 받을 수 있이므로
+- 따라서 삽입하는 과정은 다음과 같다.
+  1. top 중에서 입력보다 작은 것을 구한다.
+  2. 그 중에서 가장 큰 top이 있는 stack에 삽입한다.
+
+### Bonus1
+
+---
+
+연속된 숫자를 제거하는 문제
+
+- stack의 크기가 0이면 삽입한다.
+- stack의 peek은 직전에 삽입된 것이므로 peek과 동일하면 삽입하지 않는다.
