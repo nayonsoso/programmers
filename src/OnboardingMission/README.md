@@ -41,3 +41,13 @@
 
 - stack의 크기가 0이면 삽입한다.
 - stack의 peek은 직전에 삽입된 것이므로 peek과 동일하면 삽입하지 않는다.
+
+### Mission2
+
+---
+
+데크(양방향 큐)를 이용해 shift를 하고, 최소한의 shift 연산 수를 구하는 문제
+- 큐 선언 : `Queue<E> queue = new LinkedList<>( );`
+- 데크 선언 : `Deque<E> deque = new LinkedList<>();`
+  - 여러 클래스들이 Deque 인터페이스를 구현하므로 다양한 방법으로 생성할 수 있다. (ArrayDeque, LinkedBlockingDeque, ConcurrentLinkedDeque, LinkedList)
+- 
