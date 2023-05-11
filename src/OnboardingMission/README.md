@@ -47,7 +47,37 @@
 ---
 
 데크(양방향 큐)를 이용해 shift를 하고, 최소한의 shift 연산 수를 구하는 문제
-- 큐 선언 : `Queue<E> queue = new LinkedList<>( );`
-- 데크 선언 : `Deque<E> deque = new LinkedList<>();`
+- 큐 선언 : `Queue<E> queue = new LinkedList<>();`
+- 데크 선언 : `Deque<E> deque = new LinkedList<>() || new ArrayDeque<>();`
   - 여러 클래스들이 Deque 인터페이스를 구현하므로 다양한 방법으로 생성할 수 있다. (ArrayDeque, LinkedBlockingDeque, ConcurrentLinkedDeque, LinkedList)
-- 
+  - 이중 LinkedList와 ArrayDeque를 많이 사용하는데, indexOf를 써야하는 상황에서는 LinkedList, 다른 경우에서는 ArrayDeque가 더 성능이 좋으므로 ArrayDeque를 사용하면 된다.
+  - 출처 : https://tech-monster.tistory.com/159
+
+### Bonus2
+
+---
+
+업데이트가 다 되면 업데이트를 종료하는 문제 (뒤에 있는 것이 먼저 업데이트 완료되더라도 앞이 종료되지 않으면 종료하지 않음)
+- 딱히 새로 알게된 개념 없음
+
+### Mission3
+
+---
+
+배열의 최대, 최소를 출력하는 문제
+- min, max의 integer 변수를 선언하고 min보다 작거나 max보다 크면 업데이트 시켜줌
+
+### Bonus3
+
+---
+
+입력된 수에 의해 나누어떨어지는 것을 정렬 후 출력하는 문제 
+- Array to stream : `Arrays.stream(array)`
+- ArrayList sort : `Collections.sort(arraylist)`
+
+### Mission4
+
+---
+
+
+![img_4.png](img_4.png)

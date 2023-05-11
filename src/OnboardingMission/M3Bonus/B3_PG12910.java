@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class PG12910 {
+public class B3_PG12910 {
     public static void main(String[] args) {
         int[] arr = {5, 9, 7, 10};
         int divisor = 5;

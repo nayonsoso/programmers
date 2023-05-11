@@ -2,7 +2,7 @@ package OnboardingMission.M3;
 
 import java.util.Scanner;
 
-public class BJ10818 {
+public class M3_BJ10818 {
     public static void main(String[] args) {
         // 조건에 맞게 입력받기
         Scanner scanner = new Scanner(System.in);

@@ -1,15 +1,15 @@
-// 연속된 숫자를 제거하는 문제
-// 프로그래머스 12906
+// 업데이트가 다 되면 업데이트를 종료하는 문제 (뒤에것이 먼저 업데이트 완료되더라도 앞이 종료되지 않으면 종료하지 않음)
+// 프로그래머스 42586
 
 package OnboardingMission.M2Bonus;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class Bonus2 {
+public class B2_PG42586 {
     public static void main(String[] args) {
         int[] progresses = {95,90,99,99,80,99};
-        int[] speeds = {1, 1,1,1,1,1};
+        int[] speeds = {1,1,1,1,1,1};
         Arrays.stream(solution(progresses, speeds)).forEach(System.out::println);
     }
 

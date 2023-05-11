@@ -6,7 +6,7 @@ package OnboardingMission.M1;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Mission1 {
+public class M1_BJ25556 {
     public static void main(String[] args) {
         // 초기 설정 : 입력받고 4개의 stack을 만듦
         Scanner scanner = new Scanner(System.in);
