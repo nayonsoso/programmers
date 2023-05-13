@@ -75,9 +75,16 @@
 - Array to stream : `Arrays.stream(array)`
 - ArrayList sort : `Collections.sort(arraylist)`
 
-### Mission4
+### HashQuiz
 
 ---
 
+- String to char array : `char[] charArr = string.toCharArray();` : 문자열에서 한 글자씩 enhances for문을 적용하고 싶을 때 사용할 수 있음
+- HashMap 주요 함수
+  - `hm.getOrDefault(k,default_value)` : key가 저장되어있으면 그 값을 리턴, 없으면 디폴트 값을 리턴
+  - e.g.`hm.put(c, hm.getOrDefault(c,0)+1);` : c에 해당하는 값이 있으면 그 값 + 1을 저장, 없으면 c에 1을 저장
+  - 위 코드는 빈도를 체크할 때 유용함
+- String을 더할때는 `+=`가 아니라 `StringBuilder`객체를 사용하는게 좋다. String은 길이가 변할 수 없는 객체를 만들므로 +=를 사용하면, 길이가 달라진 String 객체를 새롭게 생성하여 그 값을 리턴한다. 하지만 StringBuilder을 사용하면 가변 길이의 String 객체를 생성하므로 String을 합칠 때 사용하면 좋다.
+  - `StringBuilder sb = new StringBuilder();` `sb.append("자바").append("최고");`
+  - StringBuilder을 String으로 바꾸기 위해선 `toString()` 메소드를 사용하면 된다.
 
-![img_4.png](img_4.png)

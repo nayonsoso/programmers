@@ -1,17 +1,16 @@
-package OnboardingMission.M4;
+package OnboardingMission.HashQuiz1;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class Mission4 {
+public class Quiz1 {
     public static void main(String[] args) {
-        System.out.println(Solution.solution("hello"));
+        OnboardingMission.HashQuiz1.Solution.solution("hello");
     }
 }
 
 class Solution {
     public static String solution(String s) {
-
         char[] charArr = s.toCharArray();
         HashMap<Character, Integer> hm = new HashMap<>();
         for(char c : charArr){
