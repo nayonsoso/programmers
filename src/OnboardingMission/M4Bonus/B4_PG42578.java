@@ -18,12 +18,12 @@ public class B4_PG42578 {
         Hashtable<String, Integer> hb = new Hashtable<>();
         for(int i = 0; i<clothes.length; i++){
             String category = clothes[i][clothes[i].length-1];
-                hb.put(category, hb.getOrDefault(category,0)+1);
-                System.out.println("category = " + category);
-                System.out.println("count = " + (hb.getOrDefault(category,0)));
+            hb.put(category, hb.getOrDefault(category,0)+1);
+            System.out.println("category = " + category);
+            System.out.println("count = " + (hb.getOrDefault(category,0)));
             
         }
-        int answer = 0;
+        int answer = 1;
 
         for(String c : hb.keySet()){
             System.out.println("c = " + c);
