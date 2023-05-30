@@ -3,6 +3,85 @@ package OnboardingMission.M5;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        next = null;
+    }
+}
+
+class Circle {
+    Node head;
+
+    Circle() {
+        this.head = null;
+    }
+
+    // 삽입하는 연산
+    void addData(int data) {
+        if (this.head == null) {
+            this.head = new Node(data);
+        } else {
+            Node cur = this.head;
+            while (cur.next != null) {
+                cur = cur.next;
+            }
+            cur.next = new Node(data);
+        }
+    }
+
+    void addLastData(int data) {
+        if(this.head == null){ // 처음 추가하는 데이터가 head이자 끝인 경우
+            head = new Node(1);
+            head.next = head;
+        } else {
+            Node cur = this.head;
+            while (cur.next != null) {
+                cur = cur.next;
+            }
+            cur.next = new Node(data);
+            cur.next.next = this.head;
+        }
+    }
+
+    int removeData(int K) {
+        Node cur = this.head;
+        int delete = 0;
+
+        // circle의 크기가 1인 경우
+        if (cur.next.data == head.data) {
+            delete = head.data;
+        }
+
+        // K가 1이상인 경우
+        for (int i = 0; i < K ; i++) {
+            if (i == K - 2) {
+                // cur = 지울 노트 이전의 노드
+                delete = cur.next.data;
+                cur.next = cur.next.next;
+                head = cur.next; // 삭제 후 헤드를 변경
+            } else {
+                cur = cur.next;
+            }
+        }
+
+        // K가 1인 경우
+        if(K==1){
+            delete = head.data;
+            while (cur.next != head){
+                cur = cur.next;
+            }
+            cur.next = cur.next.next;
+            head = cur.next; // 삭제 후 헤드를 변경
+        }
+
+        return delete;
+    }
+}
+
 public class M5_BJ1158 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -10,9 +89,9 @@ public class M5_BJ1158 {
         int K = scanner.nextInt(); // 제거할 순번
 
         // 링크드 리스트 생성과 삽입
-        LinkedList ll = new LinkedList();
+        Circle ll = new Circle();
         for (int i = 1; i <= N; i++) {
-            if (i == N && i !=1) {
+            if(i == N){
                 ll.addLastData(i);
             } else {
                 ll.addData(i);
@@ -20,14 +99,10 @@ public class M5_BJ1158 {
         }
 
         ArrayList<Integer> answer = new ArrayList<>();
-
-        Node deletedNode = ll.removeData(ll.head, K);
-        answer.add(deletedNode.data);
-
-        while (ll.size != 0) {
-            deletedNode = ll.removeData(deletedNode.next, K);
-            answer.add(deletedNode.data);
+        for(int i = 0; i<N; i++) {
+            answer.add(ll.removeData(K));
         }
+        answer.add(ll.head.data);
 
         StringBuilder sb = new StringBuilder();
 
@@ -45,75 +120,3 @@ public class M5_BJ1158 {
 }
 
 
-class Node {
-    int data;
-    Node next;
-
-    Node(int data, Node next) {
-        this.data = data;
-        this.next = next;
-    }
-}
-
-class LinkedList {
-    Node head;
-    int size;
-
-    LinkedList() {
-        this.head = null;
-        this.size = 0;
-    }
-
-    // 삽입하는 연산
-    void addData(int data) {
-        if (this.head == null) {
-            this.head = new Node(data, null);
-        } else {
-            Node cur = this.head;
-            while (cur.next != null) {
-                cur = cur.next;
-            }
-            cur.next = new Node(data, null);
-        }
-        size++;
-    }
-
-    void addLastData(int data) {
-        Node cur = this.head;
-        while (cur.next != null) {
-            cur = cur.next;
-        }
-        cur.next = new Node(data, head);
-        size++;
-    }
-
-    Node removeData(Node startNode, int K) {
-        if (this.size == 1) {
-            size--;
-            return startNode;
-        }
-
-        // 사용할 두개의 노드 선언
-        Node cur = startNode;
-        Node before = new Node(0, null);
-
-        for (int i = 0; i < K - 1; i++) {
-            if (i == K - 2) {
-                before = new Node(cur.data, cur.next); // 삭제하기 직전 노드의 값 저장
-                cur.next = cur.next.next; // 삭제 직전 노드의 next가 삭제할 노드의 next를 가리키게
-            } else {
-                cur = cur.next;
-            }
-        }
-
-        if(K==1){
-            before = new Node(cur.data, cur.next); // 현재 노드의 값 저장 (현재 노드는 next를 바꿀 것이므로 저장해둬야 함)
-            cur.next = cur.next.next; // 현재 노드의 next가 다음 노드의 next를 가리키게
-            size--;
-            return before;
-        }
-
-        size--;
-        return before.next;
-    }
-}
